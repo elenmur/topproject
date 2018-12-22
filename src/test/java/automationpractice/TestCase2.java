@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class TestCase2 {
@@ -29,16 +28,16 @@ public class TestCase2 {
 
 
     @Test
-    public void testCase1() {
+    public void testCase2() {
         mainPage.clickContactUs();
         contactUsPage.chooseSubjectHeading();
         contactUsPage.typeEmailAddress("email@mail.ru");
         contactUsPage.typeOrderReference("order");
         contactUsPage.addAttachFile("C:\\Users\\OO\\Desktop\\Тестовые файлы\\тест_doc_file.doc");
         contactUsPage.pressSendButton();
-        assertTrue(contactUsPage.isElementPresent(contactUsPage.getErrorMessage()));
 
-          }
+        assertTrue(contactUsPage.getErrorMessage().contains("The message cannot be blank."), "Messages should be equals");
+    }
 
     @AfterTest
     public void tearDown() {

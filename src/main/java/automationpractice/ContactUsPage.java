@@ -14,8 +14,9 @@ public class ContactUsPage {
     private By attachFileField = By.xpath("//input[@type='file']");
     private By messageField = By.id("message");
     private By sendButton = By.id("submitMessage");
-    private By successMessage = By.xpath("/html/body/div/div[2]/div/div[3]/div/p");
-    private By errorMessage = By.xpath("/html/body/div/div[2]/div/div[3]/div/div/ol/li");
+    private By successMessage = By.xpath("//p[contains(@class,'alert-success')]");
+    private By errorMessage = By.xpath("//div[contains(@class,'alert-danger')]");
+
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -46,22 +47,25 @@ public class ContactUsPage {
         driver.findElement(sendButton).click();
     }
 
-    public By getSuccessMessage() {
-        return successMessage;
-    }
 
-    public By getErrorMessage() {
-        return errorMessage;
-    }
-
-    public boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+    public String getSuccessMessage() {
+        return driver.findElement(successMessage).getText();
     }
 
 
-}
+    public String getErrorMessage() {
+    return driver.findElement(errorMessage).getText();
+    }
+
+
+    //public boolean isElementPresent(By by) {
+       // try {
+        //    driver.findElement(by);
+        //    return true;
+       // } catch (NoSuchElementException e) {
+       //     return false;
+       // }
+    }
+
+
+
