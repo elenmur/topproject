@@ -69,10 +69,11 @@ public class CreateAccountPage {
         driver.findElement(cityField).sendKeys(city);
     }
 
-    public void chooseState() {
+    public void chooseState(String ) {
         driver.findElement(stateField).click();
-        new Select(driver.findElement(stateField)).selectByVisibleText("Indiana");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Indiana'])[1]/following::option[16]")).click();
+
+        // new Select(driver.findElement(stateField)).selectByVisibleText("Florida");
+      //  driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Indiana'])[1]/following::option[16]")).click();
     }
 
     public void typePostCode(String postCode) {

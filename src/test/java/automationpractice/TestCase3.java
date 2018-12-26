@@ -8,6 +8,9 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import static automationpractice.RandomEmail.createRandomEmail;
+import static org.testng.AssertJUnit.assertEquals;
+
 
 public class TestCase3 {
 
@@ -30,7 +33,7 @@ public class TestCase3 {
     @Test
     public void testCase3() {
         mainPage.clickSignIn();
-        authenticationPage.typeEmailAddress("3@mail.ru");
+        authenticationPage.typeEmailAddress(createRandomEmail());
         authenticationPage.pressCreateAnAccountButton();
         createAccountPage.chooseFemaleGender();
         createAccountPage.typeFirstName("Elen");
@@ -40,9 +43,18 @@ public class TestCase3 {
         createAccountPage.typeAddressLastName("NY");
         createAccountPage.typeAddress("NY");
         createAccountPage.typeCityName("NY");
+        createAccountPage.chooseState();
+        createAccountPage.typePostCode("10001");
         createAccountPage.typeMobilePhone("123456789");
         createAccountPage.typeAddressAlias("alias");
         createAccountPage.pressRegisterButton();
+
+        for (String windowHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(windowHandle);
+        }
+
+        String myAccountPage = driver.getCurrentUrl();
+        assertEquals("http://automationpractice.com/index.php?controller=my-account", myAccountPage);
     }
 
     @AfterTest
