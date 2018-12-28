@@ -34,7 +34,7 @@ public class TestCase5 {
     }
 
     @Test
-    public void TestCase5()
+    public void testCase5()
 
     {
         mainPage.fillInSearchField("Blouse");
