@@ -26,7 +26,6 @@ public class TestCase2 {
         contactUsPage = new ContactUsPage(driver);
     }
 
-
     @Test
     public void testCase2() {
         mainPage.clickContactUs();

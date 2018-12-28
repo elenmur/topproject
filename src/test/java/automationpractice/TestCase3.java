@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 import static automationpractice.RandomEmail.createRandomEmail;
 import static org.testng.AssertJUnit.assertEquals;
 
-
 public class TestCase3 {
 
     private WebDriver driver;

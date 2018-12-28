@@ -3,7 +3,8 @@ package automationpractice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateAccountPage {
 
@@ -18,7 +19,8 @@ public class CreateAccountPage {
     private By addressLastNameField = By.id("lastname");
     private By addressField = By.id("address1");
     private By cityField = By.id("city");
-    private By stateField = By.id("id_state");
+    private By stateField = By.xpath("//select[@id = 'id_state']");
+    private By stateValue = By.xpath("//option[contains(text(), 'Alaska')]");
     private By postCodeField = By.id("postcode");
     private By mobilePhoneField = By.id("phone_mobile");
     private By addressAliasField = By.id("alias");
@@ -69,11 +71,11 @@ public class CreateAccountPage {
         driver.findElement(cityField).sendKeys(city);
     }
 
-    public void chooseState(String ) {
+    public void chooseState() {
         driver.findElement(stateField).click();
-
-        // new Select(driver.findElement(stateField)).selectByVisibleText("Florida");
-      //  driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Indiana'])[1]/following::option[16]")).click();
+        WebDriverWait wait = (new WebDriverWait(driver, 5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
+        driver.findElement(stateValue).click();
     }
 
     public void typePostCode(String postCode) {

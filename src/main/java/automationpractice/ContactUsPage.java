@@ -1,14 +1,13 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class ContactUsPage {
 
     private WebDriver driver;
-    private By subjectHeading = By.id("id_contact");
+    private By subjectHeading = By.xpath("//select[@id = 'id_contact']");
+    private By subjectHeadingValue = By.xpath("//option[contains(text(), 'Customer service')]");
     private By emailAddressField = By.id("email");
     private By orderReferenceField = By.id("id_order");
     private By attachFileField = By.xpath("//input[@type='file']");
@@ -23,8 +22,7 @@ public class ContactUsPage {
 
     public void chooseSubjectHeading() {
         driver.findElement(subjectHeading).click();
-        new Select(driver.findElement(subjectHeading)).selectByVisibleText("Customer service");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Customer service'])[1]/following::option[2]")).click();
+        driver.findElement(subjectHeadingValue).click();
     }
 
     public void typeEmailAddress(String email) {
@@ -47,25 +45,17 @@ public class ContactUsPage {
         driver.findElement(sendButton).click();
     }
 
-
     public String getSuccessMessage() {
         return driver.findElement(successMessage).getText();
     }
 
-
     public String getErrorMessage() {
-    return driver.findElement(errorMessage).getText();
+        return driver.findElement(errorMessage).getText();
     }
+}
 
 
-    //public boolean isElementPresent(By by) {
-       // try {
-        //    driver.findElement(by);
-        //    return true;
-       // } catch (NoSuchElementException e) {
-       //     return false;
-       // }
-    }
+
 
 
 
