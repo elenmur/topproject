@@ -73,7 +73,7 @@ public class CreateAccountPage {
 
     public void chooseState() {
         driver.findElement(stateField).click();
-        WebDriverWait wait = (new WebDriverWait(driver, 5));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
         driver.findElement(stateValue).click();
     }

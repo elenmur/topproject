@@ -9,6 +9,7 @@ public class CartPage {
     private By blouseInShoppingCart = By.xpath("//p[@class = 'product-name']/a[1]");
     private By deleteButton = By.xpath("//a[@id='2_7_0_0']/i");
     private By alert = By.xpath("//p[contains(@class,'alert-warning')]");
+    private By proceedToCheckout = By.xpath("//a[@title = 'Proceed to checkout']");
 
     public CartPage(WebDriver driver) {
 

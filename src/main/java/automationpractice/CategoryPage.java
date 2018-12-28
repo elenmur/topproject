@@ -11,7 +11,11 @@ public class CategoryPage {
     private By blouseItem = By.xpath("//div[@class = 'product-container']");
     private By addToCartButton = By.xpath("//div[@class = 'button-container']/a[@title = 'Add to cart']");
     private By proceedToCheckout = By.xpath("//a[@title='Proceed to checkout']");
+    private By tshortItem = By.xpath("//a[contains(text(), 'T-shirts')]");
 
+    public By getTshortItem() {
+        return tshortItem;
+    }
 
     public CategoryPage(WebDriver driver) {
         this.driver = driver;

@@ -13,6 +13,15 @@ public class MainPage {
     private By searchField = By.id("search_query_top");
     private By searchButton = By.name("submit_search");
     private By womenCategory = By.xpath("//a[@title = 'Women']");
+    //private By blousesCategory = By.xpath("//a[@title = 'Blouses']");
+    private By tshirtsCategory = By.xpath("//a[@title = 'T-shirts']");
+
+    public By getTshirtsCategory() {
+        return tshirtsCategory;
+    }
+    //  public By getBlousesCategory() {
+    //    return blousesCategory;
+  //  }
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -38,6 +47,13 @@ public class MainPage {
         WebElement category = driver.findElement(womenCategory);
         Actions actions = new Actions(driver);
         actions.moveToElement(category).build().perform();
+    }
+
+    //public void clickOnBloesesCategory() {
+   //     driver.findElement(blousesCategory).click();
+   // }
+    public void clickOnTshirtsCategory() {
+        driver.findElement(tshirtsCategory).click();
     }
 }
 
