@@ -32,7 +32,7 @@ public class TestCase2 {
         contactUsPage.chooseSubjectHeading();
         contactUsPage.typeEmailAddress("email@mail.ru");
         contactUsPage.typeOrderReference("order");
-        contactUsPage.addAttachFile("C:\\Users\\OO\\Desktop\\Тестовые файлы\\тест_doc_file.doc");
+        contactUsPage.addAttachFile("C:\\Users\\OO\\Documents\\GitHub\\testartid\\testFile\\CV.docx");
         contactUsPage.pressSendButton();
 
         assertTrue(contactUsPage.getErrorMessage().contains("The message cannot be blank."), "Messages should be equals");
