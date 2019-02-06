@@ -32,7 +32,7 @@ public class TestCase1 {
         contactUsPage.chooseSubjectHeading();
         contactUsPage.typeEmailAddress("email@mail.ru");
         contactUsPage.typeOrderReference("order");
-        contactUsPage.addAttachFile("C:\\Users\\OO\\Desktop\\Тестовые файлы\\тест_doc_file.doc");
+        contactUsPage.addAttachFile("C:\\Users\\OO\\Documents\\GitHub\\testartid\\testFile\\CV.docx");
         contactUsPage.typeMessage("message");
         contactUsPage.pressSendButton();
         String successMessage = contactUsPage.getSuccessMessage();
