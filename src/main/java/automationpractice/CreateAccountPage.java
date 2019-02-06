@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateAccountPage {
@@ -72,11 +73,21 @@ public class CreateAccountPage {
     }
 
     public void chooseState() {
-        driver.findElement(stateField).click();
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
-        driver.findElement(stateValue).click();
+      //  driver.findElement(By.id("id_state")).click();
+        new Select(driver.findElement(By.id("id_state"))).selectByVisibleText("Alaska");
+      //  driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Alaska'])[1]/following::option[3]")).click();
     }
+
+        // driver.findElement(stateField).click();
+        //new Select(driver.findElement(By.id("id_state"))).selectByVisibleText("Alaska");
+        //WebDriverWait wait = new WebDriverWait(driver, 60);
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
+        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Alaska'])[1]/following::option[3]")).click();
+
+       // WebDriverWait wait = new WebDriverWait(driver, 60);
+      //  wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
+      //  driver.findElement(stateValue).click();
+ //  }
 
     public void typePostCode(String postCode) {
         driver.findElement(postCodeField).sendKeys(postCode);
