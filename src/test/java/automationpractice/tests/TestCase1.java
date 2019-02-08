@@ -12,7 +12,8 @@ public class TestCase1 extends TestBase {
         app.contactUsPage.chooseSubjectHeading();
         app.contactUsPage.typeEmailAddress("email@mail.ru");
         app.contactUsPage.typeOrderReference("order");
-        app.contactUsPage.addAttachFile("C:\\Users\\OO\\Documents\\GitHub\\testartid\\src\\main\\resources\\CV.docx");
+        //app.contactUsPage.addAttachFile("C:\\Users\\OO\\Documents\\GitHub\\testartid\\src\\main\\resources\\CV.docx");
+        app.contactUsPage.addAttachFile("CV.docx");
         app.contactUsPage.typeMessage("message");
         app.contactUsPage.pressSendButton();
         String successMessage = app.contactUsPage.getSuccessMessage();
