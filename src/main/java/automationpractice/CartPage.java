@@ -1,18 +1,16 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class CartPage {
 
-    private WebDriver driver;
-    private By blouseInShoppingCart = By.xpath("//p[@class = 'product-name']/a[1]");
-    private By deleteButton = By.xpath("//a[@id='2_7_0_0']/i");
-    private By alert = By.xpath("//p[contains(@class,'alert-warning')]");
-    private By proceedToCheckout = By.xpath("//a[@title = 'Proceed to checkout']");
+    public By blouseInShoppingCart = By.xpath("//p[@class = 'product-name']/a[1]");
+    public By deleteButton = By.xpath("//a[@id='2_7_0_0']/i");
+    public By alert = By.xpath("//p[contains(@class,'alert-warning')]");
+    public FirefoxDriver driver;
 
-    public CartPage(WebDriver driver) {
-
+    public CartPage(FirefoxDriver driver) {
         this.driver = driver;
     }
 

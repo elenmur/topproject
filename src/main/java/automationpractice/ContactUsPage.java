@@ -1,22 +1,22 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ContactUsPage {
 
-    private WebDriver driver;
-    private By subjectHeading = By.xpath("//select[@id = 'id_contact']");
-    private By subjectHeadingValue = By.xpath("//option[contains(text(), 'Customer service')]");
-    private By emailAddressField = By.id("email");
-    private By orderReferenceField = By.id("id_order");
-    private By attachFileField = By.xpath("//input[@type='file']");
-    private By messageField = By.id("message");
-    private By sendButton = By.id("submitMessage");
-    private By successMessage = By.xpath("//p[contains(@class,'alert-success')]");
-    private By errorMessage = By.xpath("//div[contains(@class,'alert-danger')]");
+    public FirefoxDriver driver;
+    public By subjectHeading = By.xpath("//select[@id = 'id_contact']");
+    public By subjectHeadingValue = By.xpath("//option[contains(text(), 'Customer service')]");
+    public By emailAddressField = By.id("email");
+    public By orderReferenceField = By.id("id_order");
+    public By attachFileField = By.xpath("//input[@type='file']");
+    public By messageField = By.id("message");
+    public By sendButton = By.id("submitMessage");
+    public By successMessage = By.xpath("//p[contains(@class,'alert-success')]");
+    public By errorMessage = By.xpath("//div[contains(@class,'alert-danger')]");
 
-    public ContactUsPage(WebDriver driver) {
+    public ContactUsPage(FirefoxDriver driver) {
         this.driver = driver;
     }
 

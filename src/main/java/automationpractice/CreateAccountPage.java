@@ -1,43 +1,34 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateAccountPage {
 
-    private WebDriver driver;
+    public FirefoxDriver driver;
 
-    private By maleGenderRadiobutton = By.id("id_gender1");
-    private By femaleGenderRadiobutton = By.id("id_gender2");
-    private By firstNameField = By.id("customer_firstname");
-    private By lastNameField = By.id("customer_lastname");
-    private By passwordField = By.id("passwd");
-    private By addressFirstNameField = By.id("firstname");
-    private By addressLastNameField = By.id("lastname");
-    private By addressField = By.id("address1");
-    private By cityField = By.id("city");
-    private By stateField = By.xpath("//select[@id = 'id_state']");
-    private By stateValue = By.xpath("//option[contains(text(), 'Alaska')]");
-    private By postCodeField = By.id("postcode");
-    private By mobilePhoneField = By.id("phone_mobile");
-    private By addressAliasField = By.id("alias");
-    private By registerButton = By.id("submitAccount");
+    public By femaleGenderRadiobutton = By.id("id_gender2");
+    public By firstNameField = By.id("customer_firstname");
+    public By lastNameField = By.id("customer_lastname");
+    public By passwordField = By.id("passwd");
+    public By addressFirstNameField = By.id("firstname");
+    public By addressLastNameField = By.id("lastname");
+    public By addressField = By.id("address1");
+    public By cityField = By.id("city");
+    public By postCodeField = By.id("postcode");
+    public By mobilePhoneField = By.id("phone_mobile");
+    public By addressAliasField = By.id("alias");
+    public By registerButton = By.id("submitAccount");
 
 
-    public CreateAccountPage(WebDriver driver) {
+    public CreateAccountPage(FirefoxDriver driver) {
         this.driver = driver;
     }
 
     public void chooseFemaleGender() {
         driver.findElement(femaleGenderRadiobutton).click();
-    }
-
-    public void chooseMaleGender() {
-        driver.findElement(maleGenderRadiobutton).click();
     }
 
     public void typeFirstName(String first_name) {
@@ -73,21 +64,8 @@ public class CreateAccountPage {
     }
 
     public void chooseState() {
-      //  driver.findElement(By.id("id_state")).click();
         new Select(driver.findElement(By.id("id_state"))).selectByVisibleText("Alaska");
-      //  driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Alaska'])[1]/following::option[3]")).click();
     }
-
-        // driver.findElement(stateField).click();
-        //new Select(driver.findElement(By.id("id_state"))).selectByVisibleText("Alaska");
-        //WebDriverWait wait = new WebDriverWait(driver, 60);
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
-        //driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Alaska'])[1]/following::option[3]")).click();
-
-       // WebDriverWait wait = new WebDriverWait(driver, 60);
-      //  wait.until(ExpectedConditions.visibilityOfElementLocated(stateValue));
-      //  driver.findElement(stateValue).click();
- //  }
 
     public void typePostCode(String postCode) {
         driver.findElement(postCodeField).sendKeys(postCode);

@@ -1,30 +1,26 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class MainPage {
 
-    private WebDriver driver;
-    private By contactUsLink = By.linkText("Contact us");
-    private By signInLink = By.linkText("Sign in");
-    private By searchField = By.id("search_query_top");
-    private By searchButton = By.name("submit_search");
-    private By womenCategory = By.xpath("//a[@title = 'Women']");
-    //private By blousesCategory = By.xpath("//a[@title = 'Blouses']");
-    private By tshirtsCategory = By.xpath("//a[@title = 'T-shirts']");
+    public FirefoxDriver driver;
+    public By contactUsLink = By.linkText("Contact us");
+    public By signInLink = By.linkText("Sign in");
+    public By searchField = By.id("search_query_top");
+    public By searchButton = By.name("submit_search");
+    public By womenCategory = By.xpath("//a[@title = 'Women']");
+    public By tshirtsCategory = By.xpath("//a[@title = 'T-shirts']");
+
+    public MainPage(FirefoxDriver driver) {
+        this.driver = driver;
+    }
 
     public By getTshirtsCategory() {
         return tshirtsCategory;
-    }
-    //  public By getBlousesCategory() {
-    //    return blousesCategory;
-  //  }
-
-    public MainPage(WebDriver driver) {
-        this.driver = driver;
     }
 
     public void clickSignIn() {
@@ -49,9 +45,6 @@ public class MainPage {
         actions.moveToElement(category).build().perform();
     }
 
-    //public void clickOnBloesesCategory() {
-   //     driver.findElement(blousesCategory).click();
-   // }
     public void clickOnTshirtsCategory() {
         driver.findElement(tshirtsCategory).click();
     }

@@ -1,16 +1,15 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AuthenticationPage {
 
-    private WebDriver driver;
+    public FirefoxDriver driver;
+    public By createEmailField = By.id("email_create");
+    public By createAnAccountButton = By.id("SubmitCreate");
 
-    private By createEmailField = By.id("email_create");
-    private By createAnAccountButton = By.id("SubmitCreate");
-
-    public AuthenticationPage(WebDriver driver) {
+    public AuthenticationPage(FirefoxDriver driver) {
         this.driver = driver;
     }
 
