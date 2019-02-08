@@ -1,13 +1,17 @@
 package automationpractice.appmanager;
 
 import automationpractice.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-    public FirefoxDriver driver;
+    public WebDriver driver;
 
     public ContactUsPage contactUsPage;
     public MainPage mainPage;
@@ -18,8 +22,20 @@ public class ApplicationManager {
 
 
     public void init() {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\OO\\IdeaProjects\\testselenium\\drivers\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        String browser = BrowserType.FIREFOX;
+        switch (browser) {
+            case BrowserType.FIREFOX:
+                System.setProperty("webdriver.gecko.driver", "C:\\Users\\OO\\IdeaProjects\\testselenium\\drivers\\geckodriver.exe");
+                driver = new FirefoxDriver();
+                break;
+            case BrowserType.CHROME:
+                driver = new ChromeDriver();
+                break;
+            case BrowserType.IE:
+                driver = new InternetExplorerDriver();
+                break;
+        }
+
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com/index.php");
         mainPage = new MainPage(driver);

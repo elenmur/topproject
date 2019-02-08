@@ -1,12 +1,13 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class ContactUsPage {
 
-    public FirefoxDriver driver;
+    public WebDriver driver;
     public By subjectHeading = By.xpath("//select[@id = 'id_contact']");
     public By subjectHeadingValue = By.xpath("//option[contains(text(), 'Customer service')]");
     public By emailAddressField = By.id("email");
@@ -17,7 +18,7 @@ public class ContactUsPage {
     public By successMessage = By.xpath("//p[contains(@class,'alert-success')]");
     public By errorMessage = By.xpath("//div[contains(@class,'alert-danger')]");
 
-    public ContactUsPage(FirefoxDriver driver) {
+    public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
 

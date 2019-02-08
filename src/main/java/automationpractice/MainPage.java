@@ -1,13 +1,14 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class MainPage {
 
-    public FirefoxDriver driver;
+    public WebDriver driver;
     public By contactUsLink = By.linkText("Contact us");
     public By signInLink = By.linkText("Sign in");
     public By searchField = By.id("search_query_top");
@@ -15,7 +16,7 @@ public class MainPage {
     public By womenCategory = By.xpath("//a[@title = 'Women']");
     public By tshirtsCategory = By.xpath("//a[@title = 'T-shirts']");
 
-    public MainPage(FirefoxDriver driver) {
+    public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 

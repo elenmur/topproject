@@ -1,13 +1,14 @@
 package automationpractice;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateAccountPage {
 
-    public FirefoxDriver driver;
+    public WebDriver driver;
 
     public By femaleGenderRadiobutton = By.id("id_gender2");
     public By firstNameField = By.id("customer_firstname");
@@ -23,7 +24,7 @@ public class CreateAccountPage {
     public By registerButton = By.id("submitAccount");
 
 
-    public CreateAccountPage(FirefoxDriver driver) {
+    public CreateAccountPage(WebDriver driver) {
         this.driver = driver;
     }
 
