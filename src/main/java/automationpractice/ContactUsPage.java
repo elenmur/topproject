@@ -2,6 +2,7 @@ package automationpractice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class ContactUsPage {
 
@@ -20,6 +21,7 @@ public class ContactUsPage {
         this.driver = driver;
     }
 
+    @Step ("выбрать Customer service")
     public void chooseSubjectHeading() {
         driver.findElement(subjectHeading).click();
         driver.findElement(subjectHeadingValue).click();
