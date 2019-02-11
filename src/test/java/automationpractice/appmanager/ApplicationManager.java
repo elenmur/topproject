@@ -19,17 +19,18 @@ public class ApplicationManager {
     public CreateAccountPage createAccountPage;
     public CategoryPage categoryPage;
     public CartPage cartPage;
+    private String browser;
 
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
 
     public void init() {
-        String browser = BrowserType.CHROME;
         switch (browser) {
             case BrowserType.FIREFOX:
-                System.setProperty("webdriver.gecko.driver", "C:\\Users\\OO\\IdeaProjects\\testselenium\\drivers\\geckodriver.exe");
                 driver = new FirefoxDriver();
                 break;
             case BrowserType.CHROME:
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\OO\\IdeaProjects\\testselenium\\drivers\\chromedriver.exe");
                 driver = new ChromeDriver();
                 break;
             case BrowserType.IE:
