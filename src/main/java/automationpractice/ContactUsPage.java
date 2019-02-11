@@ -22,36 +22,36 @@ public class ContactUsPage {
         this.driver = driver;
     }
 
-    @Step ("выбрать Customer service")
+    @Step ("Выбрать опцию 'Customer service'")
     public void chooseSubjectHeading() {
         driver.findElement(subjectHeading).click();
         driver.findElement(subjectHeadingValue).click();
     }
-
+@Step ("Ввести e-mail в поле ввода")
     public void typeEmailAddress(String email) {
         driver.findElement(emailAddressField).sendKeys(email);
     }
-
+@Step ("Ввести id order")
     public void typeOrderReference(String value) {
         driver.findElement(orderReferenceField).sendKeys(value);
     }
-
+@Step ("Загрузить файл")
     public void addAttachFile(String value) {
         driver.findElement(attachFileField).sendKeys(value);
     }
-
+@Step ("Написать сообщение")
     public void typeMessage(String value) {
         driver.findElement(messageField).sendKeys(value);
     }
-
+@Step ("Нажать кнопку 'Отправить'")
     public void pressSendButton() {
         driver.findElement(sendButton).click();
     }
-
+@Step ("Проверить наличие сообщения об успехе")
     public String getSuccessMessage() {
         return driver.findElement(successMessage).getText();
     }
-
+    @Step ("Проверить наличие сообщения об ошибке")
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
     }
