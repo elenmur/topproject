@@ -18,11 +18,11 @@ public class CategoryPage {
         this.driver = driver;
     }
 
-
+    @Step("Проверить наличие элемента 'T-short'")
     public By getTshortItem() {
         return tshortItem;
     }
-
+    @Step("Проверить наличие элемента 'Blouse'")
     public By getBlouseItem() {
         return blouseItem;
     }
