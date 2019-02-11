@@ -2,9 +2,9 @@ package automationpractice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class CategoryPage {
 
@@ -18,6 +18,7 @@ public class CategoryPage {
         this.driver = driver;
     }
 
+
     public By getTshortItem() {
         return tshortItem;
     }
@@ -26,10 +27,11 @@ public class CategoryPage {
         return blouseItem;
     }
 
+    @Step("Нажать на кнопку 'Add to cart'")
     public void pressAddToCartButton() {
         driver.findElement(addToCartButton).click();
     }
-
+    @Step("Нажать на кнопку 'Proceed to checkout'")
     public void pressProceedToCheckout() {
         WebDriverWait wait = (new WebDriverWait(driver, 5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(proceedToCheckout));

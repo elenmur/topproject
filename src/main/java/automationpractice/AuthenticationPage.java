@@ -2,6 +2,7 @@ package automationpractice;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class AuthenticationPage {
 
@@ -13,10 +14,11 @@ public class AuthenticationPage {
         this.driver = driver;
     }
 
+    @Step ("Ввести в поле ввода e-mail")
     public void typeEmailAddress(String mail) {
         driver.findElement(createEmailField).sendKeys(mail);
     }
-
+    @Step ("Нажать кнопку 'Create account'")
     public void pressCreateAnAccountButton() {
         driver.findElement(createAnAccountButton).click();
     }
