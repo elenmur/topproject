@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 
     public WebDriver driver;
-
     public ContactUsPage contactUsPage;
     public MainPage mainPage;
     public AuthenticationPage authenticationPage;
@@ -26,6 +25,7 @@ public class ApplicationManager {
     }
 
     public void init() {
+
         switch (browser) {
             case BrowserType.FIREFOX:
                 driver = new FirefoxDriver();
