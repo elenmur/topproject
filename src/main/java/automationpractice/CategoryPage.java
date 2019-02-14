@@ -11,7 +11,8 @@ public class CategoryPage {
     public WebDriver driver;
     public By blouseItem = By.xpath("//div[@class = 'product-container']");
     public By addToCartButton = By.xpath("//div[@class = 'button-container']/a[@title = 'Add to cart']");
-    public By proceedToCheckout = By.xpath("//a[@title='Proceed to checkout']");
+    public By proceedToCheckout = By.xpath("//*[@id='layer_cart']//a[@title='Proceed to checkout']");
+    //public By proceedToCheckout = By.xpath("//a[@title='Proceed to checkout']");
     public By tshortItem = By.xpath("//a[contains(text(), 'T-shirts')]");
 
     public CategoryPage(WebDriver driver) {
@@ -33,7 +34,7 @@ public class CategoryPage {
     }
     @Step("Нажать на кнопку 'Proceed to checkout'")
     public void pressProceedToCheckout() {
-        WebDriverWait wait = (new WebDriverWait(driver, 5));
+        WebDriverWait wait = (new WebDriverWait(driver, 15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(proceedToCheckout));
         driver.findElement(proceedToCheckout).click();
     }

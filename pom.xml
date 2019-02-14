@@ -92,6 +92,9 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.0/aspectjweaver-1.8.0.jar"
+                        </argLine>
                     </configuration>
                     <dependencies>
                     </dependencies>

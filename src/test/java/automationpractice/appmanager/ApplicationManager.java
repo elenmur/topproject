@@ -1,6 +1,8 @@
 package automationpractice.appmanager;
 
 import automationpractice.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -51,6 +53,10 @@ public class ApplicationManager {
 
     public void stop() {
         driver.quit();
+    }
+
+    public byte[] takeScreenshot(){
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
 

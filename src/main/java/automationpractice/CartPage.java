@@ -7,7 +7,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class CartPage {
 
     public By blouseInShoppingCart = By.xpath("//p[@class = 'product-name']/a[1]");
-    public By deleteButton = By.xpath("//a[@id='2_7_0_0']/i");
+    public By deleteButton = By.xpath("//div/a[@class='cart_quantity_delete'/i");
     public By alert = By.xpath("//p[contains(@class,'alert-warning')]");
     public WebDriver driver;
 
