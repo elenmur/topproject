@@ -25,7 +25,7 @@ public class TestCase5 extends TestBase {
         app.categoryPage.pressAddToCartButton();
         app.categoryPage.pressProceedToCheckout();
         assertTrue(isElementPresent(app.cartPage.getBlouseInShoppingCart()));
-        app.cartPage.clickDeleteButton();
+                app.cartPage.clickDeleteButton();
         WebDriverWait wait = (new WebDriverWait(app.driver, 5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(@class,'alert-warning')]")));
         assertTrue(app.cartPage.getAlert().contains("Your shopping cart is empty."));
