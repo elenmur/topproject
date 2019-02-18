@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public abstract class ApplicationManager {
+public class ApplicationManager {
 
     public WebDriver driver;
     private final Properties properties;
