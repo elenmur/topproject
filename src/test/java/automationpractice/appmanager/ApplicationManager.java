@@ -8,12 +8,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager {
+public abstract class ApplicationManager {
 
     public WebDriver driver;
+    private final Properties properties;
     public ContactUsPage contactUsPage;
     public MainPage mainPage;
     public AuthenticationPage authenticationPage;
@@ -24,22 +30,27 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties =new Properties();
     }
 
-    public void init() {
-
-        switch (browser) {
-            case BrowserType.FIREFOX:
-                driver = new FirefoxDriver();
-                break;
-            case BrowserType.CHROME:
-                driver = new ChromeDriver();
-                break;
-            case BrowserType.IE:
-                driver = new InternetExplorerDriver();
-                break;
+    public void init() throws MalformedURLException {
+        if ("".equals(properties.getProperty("selenium.server"))) {
+            switch (browser) {
+                case BrowserType.FIREFOX:
+                    driver = new FirefoxDriver();
+                    break;
+                case BrowserType.CHROME:
+                    driver = new ChromeDriver();
+                    break;
+                case BrowserType.IE:
+                    driver = new InternetExplorerDriver();
+                    break;
+            }
+        } else {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName(browser);
+            driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
         }
-
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com/index.php");
         mainPage = new MainPage(driver);
@@ -55,7 +66,7 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    public byte[] takeScreenshot(){
+    public byte[] takeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
