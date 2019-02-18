@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 @Listeners (MyTestListener.class)
 public class TestBase {
 
-    public static ApplicationManager app
+    public static final ApplicationManager app
             = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
