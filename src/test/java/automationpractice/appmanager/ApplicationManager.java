@@ -37,29 +37,28 @@ public class ApplicationManager {
     }
 
     public void init() throws IOException {
-        properties.load(new FileReader(new File("src/test/resources/local.properties")));
-if ("".equals(properties.getProperty("selenium.server"))){
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+        if ("".equals(properties.getProperty("selenium.server"))) {
 
-        switch (browser) {
-            case BrowserType.FIREFOX:
-                driver = new FirefoxDriver();
-                break;
-            case BrowserType.CHROME:
-                driver = new ChromeDriver();
-                break;
-            case BrowserType.IE:
-                driver = new InternetExplorerDriver();
-                break;
-        }}
-        else {
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setBrowserName(browser);
-    driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
-}
+            switch (browser) {
+                case BrowserType.FIREFOX:
+                    driver = new FirefoxDriver();
+                    break;
+                case BrowserType.CHROME:
+                    driver = new ChromeDriver();
+                    break;
+                case BrowserType.IE:
+                    driver = new InternetExplorerDriver();
+                    break;
+            }
+        } else {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName(browser);
+            driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
+        }
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        //driver.get("http://automationpractice.com/index.php");
         driver.get(properties.getProperty("site.url"));
         mainPage = new MainPage(driver);
         contactUsPage = new ContactUsPage(driver);
