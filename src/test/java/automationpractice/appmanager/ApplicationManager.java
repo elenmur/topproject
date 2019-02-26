@@ -8,17 +8,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-import ru.yandex.qatools.properties.PropertyLoader;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.String.*;
-
 public class ApplicationManager {
 
-   private final Properties properties;
+    private final Properties properties;
     public WebDriver driver;
     public ContactUsPage contactUsPage;
     public MainPage mainPage;
@@ -31,13 +33,12 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
-      properties = new Properties();
+        properties = new Properties();
     }
 
     public void init() throws IOException {
-       //String target = System.getProperty("target", "local");
-       properties.load(new FileReader(new File("src/test/resources/local.properties")));
-
+        properties.load(new FileReader(new File("src/test/resources/local.properties")));
+if (".".equals(properties.getProperty("selenium.server"))){
 
         switch (browser) {
             case BrowserType.FIREFOX:
@@ -49,7 +50,12 @@ public class ApplicationManager {
             case BrowserType.IE:
                 driver = new InternetExplorerDriver();
                 break;
-        }
+        }}
+        else {
+    DesiredCapabilities capabilities = new DesiredCapabilities();
+    capabilities.setBrowserName(browser);
+    driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
+}
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
