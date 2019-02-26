@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" verbose="1" parallel="methods" thread-count="10">
+    <test name="TestFirefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <packages>
+            <package name="automationpractice.tests" />
+        </packages>
+    </test>
+    <test name="TestChrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <packages>
+            <package name="automationpractice.tests"/>
+        </packages>
+    </test>
+</suite>
