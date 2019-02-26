@@ -95,7 +95,14 @@
                         </suiteXmlFiles>
                         <systemPropertyVariables>
                             <application.properties>src/test/resources/local.properties</application.properties>
-                        </systemPropertyVariables>
+                            <application.properties>src/test/resources/remote.properties</application.properties>
+                            <properties>
+                                <site.url>http://automationpractice.com/index.php</site.url>
+                            </properties>
+                            <activation>
+                                <activeByDefault>true</activeByDefault>
+                            </activation>
+                                   </systemPropertyVariables>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.0/aspectjweaver-1.8.0.jar"
                         </argLine>
@@ -116,6 +123,7 @@
 
             </plugins>
         </pluginManagement>
+
 
     </build>
 
