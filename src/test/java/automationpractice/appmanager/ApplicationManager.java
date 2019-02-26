@@ -38,7 +38,7 @@ public class ApplicationManager {
 
     public void init() throws IOException {
         properties.load(new FileReader(new File("src/test/resources/local.properties")));
-if (".".equals(properties.getProperty("selenium.server"))){
+if ("".equals(properties.getProperty("selenium.server"))){
 
         switch (browser) {
             case BrowserType.FIREFOX:
