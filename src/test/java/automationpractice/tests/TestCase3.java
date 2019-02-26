@@ -1,6 +1,7 @@
 package automationpractice.tests;
 
 import automationpractice.appmanager.TestBase;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import static automationpractice.RandomEmail.createRandomEmail;
 import static org.testng.AssertJUnit.assertEquals;
@@ -8,6 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class TestCase3 extends TestBase {
 
     @Test
+
     public void testCase3() {
         app.mainPage.clickSignIn();
         app.authenticationPage.typeEmailAddress(createRandomEmail());

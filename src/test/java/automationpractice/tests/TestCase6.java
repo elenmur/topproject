@@ -1,5 +1,6 @@
 package automationpractice.tests;
 
+import automationpractice.appmanager.RunUntilSuccess;
 import automationpractice.appmanager.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,10 +11,10 @@ import static org.testng.Assert.assertTrue;
 
 public class TestCase6 extends TestBase {
 
-    @Test
+    @Test (retryAnalyzer = RunUntilSuccess.class)
     public void testCase6() {
         app.mainPage.moveToWomenCategory();
-        WebDriverWait wait = (new WebDriverWait(app.driver, 15));
+        WebDriverWait wait = (new WebDriverWait(app.driver, 3));
         wait.until(ExpectedConditions.visibilityOfElementLocated(app.mainPage.getTshirtsCategory()));
         app.mainPage.clickOnTshirtsCategory();
         assertTrue(isElementPresent(app.categoryPage.getTshortItem()));

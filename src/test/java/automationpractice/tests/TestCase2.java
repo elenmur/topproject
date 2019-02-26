@@ -1,6 +1,7 @@
 package automationpractice.tests;
 
 import automationpractice.appmanager.TestBase;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -12,6 +13,7 @@ public class TestCase2 extends TestBase {
 
 
     @Test
+
     public void testCase2() throws URISyntaxException {
         app.mainPage.clickContactUs();
         app.contactUsPage.chooseSubjectHeading();

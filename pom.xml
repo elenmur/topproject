@@ -90,8 +90,12 @@
                     <version>2.19.1</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/testng-odd.xml</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/testng-even.xml</suiteXmlFile>
                         </suiteXmlFiles>
+                        <systemPropertyVariables>
+                            <application.properties>src/test/resources/local.properties</application.properties>
+                        </systemPropertyVariables>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.0/aspectjweaver-1.8.0.jar"
                         </argLine>
@@ -112,7 +116,9 @@
 
             </plugins>
         </pluginManagement>
+
     </build>
+
 
     <reporting>
         <excludeDefaults>true</excludeDefaults>
