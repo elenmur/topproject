@@ -2,6 +2,7 @@ package automationpractice.appmanager;
 
 import automationpractice.*;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,6 +56,7 @@ public class ApplicationManager {
         } else {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName(browser);
+            capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
             driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
         }
 
